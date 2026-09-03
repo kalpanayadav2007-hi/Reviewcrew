@@ -8,6 +8,24 @@
 ## 📌 Day 2 Update Log
 Day 2 (System Design) added one change to this Blueprint: a `GET /api/health` endpoint, folded into Day 3's task list below. No other design decisions changed — the architecture, stack, and scope from Day 1 were confirmed as-is. Full technical detail lives in the companion files: `ARCHITECTURE.md`, `SCHEMA.md`, `API.md`, `UI-WIREFRAMES.md`, `PROJECT-STRUCTURE.md`.
 
+## 📌 Day 3 Update Log & Day-Numbering Map
+Real-world capstone days and this Blueprint's internal section numbers have diverged — flagging this clearly so no future session gets confused:
+
+| Real capstone day | What happened | Blueprint section to use |
+|---|---|---|
+| Day 1 | Idea discovery, PRD, Blueprint, Pitch Deck planning | — |
+| Day 2 | System design (architecture, schema, API, wireframes, structure) | — |
+| **Day 3 (today)** | Environment setup, dependencies, repo/branching, Hello World foundation | Covered by this update, not the original "Day 2" section below |
+| **Day 4 (tomorrow)** | First real feature: Quality Agent + orchestrator + `/api/review` | Use the section below titled **"DAY 2 — Orchestrator & First Agent (Quality Agent)"** |
+| Day 5 | Bug + Security agents, full orchestrator | Use section titled "DAY 3" below |
+| Day 6 | Frontend foundation, API wiring | Use section titled "DAY 4" below |
+| Day 7 | Render results, input hardening | Use section titled "DAY 5" below |
+| Day 8 | Loading states, error UX | Use section titled "DAY 6" below |
+| Day 9 | Visual design polish | Use section titled "DAY 7" below |
+| Day 10 | Testing, deployment, submission — may need to compress the original Day 8/9/10 sections into fewer real days, or request a short extension; flag this explicitly at the start of Day 8 | Use sections titled "DAY 8", "DAY 9", "DAY 10" below |
+
+**Action needed:** because setup consumed a full real day (Day 3) that wasn't originally budgeted as its own day, the last 3 Blueprint sections (Day 8/9/10) now map to only 1 remaining real day after Day 9. Flagging this now: **on Day 9 (real), we must explicitly decide whether to compress testing+deployment+submission into one day, or confirm an extra day is available.** Do not silently drop testing or deployment quality to make the date work — surface the tradeoff when we get there.
+
 ## 🧭 Project Snapshot (read this first, every day)
 
 - **Product:** ReviewCrew — paste code in any language → 3 AI agents (Quality, Bug, Security) review it independently → combined structured report shown in the browser.
