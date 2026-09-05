@@ -2,13 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ReviewCrew</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReviewCrew — Multi-Agent AI Code Review</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>ReviewCrew</h1>
-  <p>Multi-agent AI code review, instantly.</p>
-  <p id="status">Checking backend connection...</p>
+  <div class="container">
+    <header>
+      <h1>ReviewCrew</h1>
+      <p class="tagline">Multi-agent AI code review, instantly.</p>
+    </header>
+
+    <main>
+      <!-- Input Panel -->
+      <section id="inputPanel">
+        <textarea
+          id="codeInput"
+          placeholder="Paste your code here (any language)..."
+          spellcheck="false"
+        ></textarea>
+        <div id="inputMessage" class="message" style="display: none;"></div>
+        <button id="reviewBtn">Review Code</button>
+      </section>
+
+      <!-- Loading State -->
+      <section id="loadingState" class="state-panel" style="display: none;">
+        <div class="spinner"></div>
+        <p>Running 3 AI agents on your code...</p>
+      </section>
+
+      <!-- Error State -->
+      <section id="errorState" class="state-panel error-panel" style="display: none;">
+        <p class="error-icon">⚠</p>
+        <p id="errorMessage">Something went wrong. Please try again.</p>
+        <button id="retryBtn">Try Again</button>
+      </section>
+
+      <!-- Results State -->
+      <section id="resultsState" class="state-panel" style="display: none;">
+        <div class="results-header">
+          <h2>Review Results</h2>
+          <button id="newReviewBtn">New Review</button>
+        </div>
+
+        <div class="findings-section">
+          <h3>🔍 Quality Findings</h3>
+          <ul id="qualityFindings" class="findings-list"></ul>
+        </div>
+
+        <div class="findings-section">
+          <h3>🐛 Bug Findings</h3>
+          <ul id="bugFindings" class="findings-list"></ul>
+        </div>
+
+        <div class="findings-section">
+          <h3>🔒 Security Findings</h3>
+          <ul id="securityFindings" class="findings-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built with Claude as part of the AB Talks 60-Day Claude AI Challenge.</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>

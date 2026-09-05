@@ -4,9 +4,9 @@
 Reviewcrew/
 ├── backend/
 │   ├── agents/
-│   │   ├── qualityAgent.js     # Quality-focused Claude call + prompt
-│   │   ├── bugAgent.js         # Bug-focused Claude call + prompt
-│   │   └── securityAgent.js    # Security-focused Claude call + prompt
+│   │   ├── qualityAgent.js     # Quality-focused Gemini call + prompt
+│   │   ├── bugAgent.js         # Bug-focused Gemini call + prompt
+│   │   └── securityAgent.js    # Security-focused Gemini call + prompt
 │   ├── server.js               # Express app, routes (/api/review, /api/health)
 │   ├── orchestrator.js         # Calls all 3 agents in parallel, merges results
 │   ├── .env                    # API key (gitignored, never committed)
@@ -27,7 +27,7 @@ Reviewcrew/
 Everything server-side. Contains the Express app, the orchestrator, and the 3 agent modules. No frontend code lives here.
 
 ### `backend/agents/`
-Each file is one independent AI specialist. Each exports a single async function (e.g., `reviewQuality(code)`) that builds a focused system prompt, calls the Claude API, and returns parsed JSON findings. **Nothing in this folder knows about the other agents** — they are fully independent, which is what makes the "multi-agent" architecture real rather than cosmetic.
+Each file is one independent AI specialist. Each exports a single async function (e.g., `reviewQuality(code)`) that builds a focused system prompt, calls the Gemini API, and returns parsed JSON findings. **Nothing in this folder knows about the other agents** — they are fully independent, which is what makes the "multi-agent" architecture real rather than cosmetic.
 
 ### `backend/orchestrator.js`
 The one file that knows about all 3 agents. Calls them in parallel and merges their results into the single response shape defined in `API.md`. This is the architectural core of the project.

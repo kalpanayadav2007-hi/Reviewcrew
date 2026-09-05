@@ -51,7 +51,7 @@ If an agent finds nothing, its `findings` array is empty `[]` — the frontend r
 | Status | Condition | Response Body |
 |---|---|---|
 | `400 Bad Request` | `code` missing, not a string, empty/whitespace, or over 5000 chars | `{ "error": "clear, specific message" }` |
-| `500 Internal Server Error` | Claude API call fails, or an unhandled exception occurs | `{ "error": "Something went wrong. Please try again." }` (generic — no stack trace or internal details exposed) |
+| `500 Internal Server Error` | Gemini API call fails, or an unhandled exception occurs | `{ "error": "Something went wrong. Please try again." }` (generic — no stack trace or internal details exposed) |
 
 ---
 
