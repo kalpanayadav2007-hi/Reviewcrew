@@ -37,6 +37,11 @@ Day 5 (real) completed Bug Agent, Security Agent, and the full parallel orchestr
 ## 📌 Day 6 Update Log — MVP COMPLETE & LIVE
 Day 6 (real) compressed the originally-separate frontend/polish/deployment sections ("DAY 4" through "DAY 9" below) into a single day to recover the schedule slip flagged on Day 3. Completed: full frontend UI (all 4 states), required footer, and live deployment on Render (free tier) for both backend and frontend. CORS restricted to the live frontend origin. Verified fully working end-to-end on the public URLs, not just locally.
 
+## 📌 Day 7 Update Log — TESTING & OPEN-SOURCE POLISH COMPLETE
+Day 7 (real) completed the remaining Blueprint scope: cross-language testing (JavaScript, Python, Java — all verified accurate) and full open-source repo polish (README.md rewritten, CONTRIBUTING.md added, TESTING.md added). Also completed a senior-level UX/accessibility pass: fixed a real risk (Render free-tier cold starts could false-trigger the request timeout — extended timeout to 55s with an honest "waking up" message), added screen-reader support (`aria-live`, labels), made severity indicators color-independent (icon + text, not color alone), added visible keyboard focus states, a character counter, a "Try an Example" button, and tab-key support in the code textarea.
+
+**The 10-day capstone's core Blueprint scope is now effectively complete** — a live, tested, accessible, documented, open-source-ready multi-agent AI product. Remaining days can focus on final demo prep, any last polish the founder wants, and submission per the AB Talks Challenge requirements.
+
 **Live URLs:**
 - Frontend: https://reviewcrew-frontend.onrender.com
 - Backend: https://reviewcrew-backend.onrender.com
