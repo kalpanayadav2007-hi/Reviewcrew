@@ -1,4 +1,5 @@
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = 'https://reviewcrew-backend.onrender.com';
+
 
 const codeInput = document.getElementById('codeInput');
 const inputMessage = document.getElementById('inputMessage');
