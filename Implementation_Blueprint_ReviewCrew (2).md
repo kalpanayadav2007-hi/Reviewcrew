@@ -26,6 +26,23 @@ Real-world capstone days and this Blueprint's internal section numbers have dive
 
 **Action needed:** because setup consumed a full real day (Day 3) that wasn't originally budgeted as its own day, the last 3 Blueprint sections (Day 8/9/10) now map to only 1 remaining real day after Day 9. Flagging this now: **on Day 9 (real), we must explicitly decide whether to compress testing+deployment+submission into one day, or confirm an extra day is available.** Do not silently drop testing or deployment quality to make the date work — surface the tradeoff when we get there.
 
+## 📌 Day 4 Update Log
+The AI provider changed from **Anthropic Claude** to **Google Gemini API** (`gemini-3.6-flash`, via `@google/generative-ai`, env var `GEMINI_API_KEY`). Reason: Anthropic's free "Evaluation access" tier lacks usable API credits without a paid top-up, which conflicted with the project's free-tools-only requirement. Google AI Studio's Gemini free tier requires no credit card. This has zero architectural impact — only the SDK/model inside each `agents/*.js` file changes; prompts, JSON contracts, orchestrator logic, and API design are all unchanged. **Any future day's instructions that reference "Claude" or "Anthropic" should be read as "Gemini"/"Google" instead.**
+
+Day 4 (real) completed the Quality Agent, orchestrator, and `/api/review` endpoint — matching this document's "DAY 2" section below. Verified working end-to-end with real AI-generated findings.
+
+## 📌 Day 5 Update Log
+Day 5 (real) completed Bug Agent, Security Agent, and the full parallel orchestrator — matching this document's "DAY 3" section below. All 3 agents verified genuinely specialized (zero overlapping findings on a mixed test case). Noted: `agents/*.js` files share duplicated boilerplate, flagged as a future refactor candidate (not urgent, not done yet — see `DAY5-SUMMARY.md`). Backend is now feature-complete for v1.0; Day 6 shifts fully to frontend work.
+
+## 📌 Day 6 Update Log — MVP COMPLETE & LIVE
+Day 6 (real) compressed the originally-separate frontend/polish/deployment sections ("DAY 4" through "DAY 9" below) into a single day to recover the schedule slip flagged on Day 3. Completed: full frontend UI (all 4 states), required footer, and live deployment on Render (free tier) for both backend and frontend. CORS restricted to the live frontend origin. Verified fully working end-to-end on the public URLs, not just locally.
+
+**Live URLs:**
+- Frontend: https://reviewcrew-frontend.onrender.com
+- Backend: https://reviewcrew-backend.onrender.com
+
+**Remaining Blueprint sections still open:** rigorous cross-language testing (originally "DAY 8"), README/open-source polish including CONTRIBUTING.md (originally "DAY 9"). Both are now smaller-scope than originally planned since the app is already live and stable. The Day 3 schedule-slip flag is now effectively resolved — remaining work fits comfortably in 1-2 more sessions.
+
 ## 🧭 Project Snapshot (read this first, every day)
 
 - **Product:** ReviewCrew — paste code in any language → 3 AI agents (Quality, Bug, Security) review it independently → combined structured report shown in the browser.
