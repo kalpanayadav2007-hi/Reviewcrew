@@ -1,19 +1,35 @@
 {
-  "name": "backend",
+  "name": "reviewcrew-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "orchestrator.js",
+  "description": "Backend for ReviewCrew - a multi-agent AI code review tool. Three independent AI agents (Quality, Bug, Security) review submitted code in parallel and return structured findings.",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ai",
+    "code-review",
+    "multi-agent",
+    "gemini",
+    "express",
+    "node"
+  ],
+  "author": "Kalpana Yadav",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalpanayadav2007-hi/Reviewcrew.git"
+  },
+  "homepage": "https://github.com/kalpanayadav2007-hi/Reviewcrew#readme",
+  "bugs": {
+    "url": "https://github.com/kalpanayadav2007-hi/Reviewcrew/issues"
+  },
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
+    "@google/generative-ai": "^0.21.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "helmet": "^8.0.0"
   }
 }

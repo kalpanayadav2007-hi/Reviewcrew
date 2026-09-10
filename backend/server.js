@@ -1,6 +1,7 @@
 require('dotenv').config({ quiet: true });
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const { runReview } = require('./orchestrator');
 
 const app = express();
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({
   origin: 'https://reviewcrew-frontend.onrender.com',
 }));
+app.use(helmet());
 app.use(express.json());
 
 // Catch malformed JSON in request bodies (otherwise Express throws

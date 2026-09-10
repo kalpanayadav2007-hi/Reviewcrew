@@ -25,6 +25,10 @@ const TIMEOUT_MS = 55000; // generous, to tolerate Render free-tier cold starts
 
 const EXAMPLE_CODE = `function getUser(id){var query='SELECT * FROM users WHERE id='+id; var arr=[1,2,3]; for(var i=0;i<=arr.length;i++){console.log(arr[i]);}}`;
 
+function isOffline() {
+  return typeof navigator !== 'undefined' && navigator.onLine === false;
+}
+
 function announce(text) {
   liveRegion.textContent = text;
 }
@@ -101,6 +105,10 @@ async function submitReview() {
   const trimmed = code.trim();
 
   clearInputMessage();
+    if (isOffline()) {
+    showInputMessage('You appear to be offline. Please check your internet connection.');
+    return;
+  }
 
   if (trimmed.length === 0) {
     showInputMessage('Paste some code first.');
