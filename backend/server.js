@@ -12,6 +12,15 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Catch malformed JSON in request bodies (otherwise Express throws
+// an unhandled error and returns an ugly HTML page instead of JSON)
+app.use((err, req, res, next) => {
+  if (err.type === 'entity.parse.failed') {
+    return res.status(400).json({ error: 'Invalid JSON in request body.' });
+  }
+  next(err);
+});
+
 // Hello World route — confirms the server is alive
 app.get('/', (req, res) => {
   res.send('ReviewCrew backend is running! 🚀');
@@ -26,7 +35,7 @@ app.get('/api/health', (req, res) => {
 app.post('/api/review', async (req, res) => {
   const { code } = req.body;
 
-  if (!code || typeof code !== 'string') {
+  if (code === undefined || code === null || typeof code !== 'string') {
     return res.status(400).json({ error: 'Field "code" is required and must be a string.' });
   }
 
@@ -49,6 +58,27 @@ app.post('/api/review', async (req, res) => {
   }
 });
 
+// Catch-all for unknown routes
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found.' });
+});
+
+// Final safety net — catches any error that slipped past route-level handling
+app.use((err, req, res, next) => {
+  console.error('Unhandled server error:', err);
+  res.status(500).json({ error: 'An unexpected error occurred.' });
+});
+
 app.listen(PORT, () => {
   console.log(`ReviewCrew backend listening on port ${PORT}`);
+});
+
+// Prevent unhandled promise rejections from crashing the whole server
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled promise rejection:', reason);
+});
+
+// Prevent uncaught exceptions from silently killing the process
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught exception:', err);
 });
